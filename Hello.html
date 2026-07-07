@@ -1,0 +1,229 @@
+from IPython.display import HTML
+
+# Existing HTML code (assuming it's loaded from previous steps or defined here for clarity)
+html_code = """
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>โปรไฟล์ส่วนตัวของฉัน</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Press Start 2P', cursive, Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            background-color: #3C7246; /* Minecraft-like grass/dirt color */
+            color: #000000; /* Darker text for contrast */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            image-rendering: pixelated; /* Ensures pixelated images/elements */
+        }
+        .container {
+            max-width: 500px;
+            margin: 20px auto;
+            background: #A0A0A0; /* Stone-like background */
+            padding: 25px;
+            border-radius: 0; /* Make it blocky */
+            box-shadow: 8px 8px 0px #404040; /* Blocky shadow effect */
+            border: 4px solid #000000; /* Thick black border */
+            flex-grow: 1;
+        }
+        .container p {
+            text-align: justify;
+            text-indent: 0; /* Remove indent for blocky text */
+            margin-bottom: 10px;
+        }
+        h1, h2, h3 {
+            font-family: 'Press Start 2P', cursive, Arial, sans-serif;
+            color: #1F1F1F; /* Dark text for titles */
+            text-align: center;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 0px #8B8B8B; /* Blocky text shadow */
+        }
+        h2 {
+            color: #1A7A28; /* Green for section titles */
+            margin-top: 25px;
+        }
+        h3 {
+            color: #8D2A2A; /* Red for sub-titles */
+        }
+        .profile-pic {
+            display: block;
+            margin: 0 auto 15px auto;
+            width: 120px;
+            height: 120px;
+            border-radius: 0; /* Make it blocky */
+            object-fit: cover;
+            border: 4px solid #000000; /* Thick black border */
+            box-shadow: 4px 4px 0px #404040; /* Blocky shadow */
+        }
+        .section {
+            margin-bottom: 15px;
+            padding: 10px 0;
+        }
+        .section h3 {
+            border-bottom: 2px solid #000000;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        /* Navigation Bar Styles */
+        nav {
+            background-color: #5C5C5C; /* Dark stone background */
+            overflow: hidden;
+            text-align: center;
+            padding: 5px 0;
+            border-bottom: 4px solid #000000; /* Thick black border */
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li a {
+            display: block;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 10px 12px;
+            text-decoration: none;
+            transition: background-color 0.1s linear, box-shadow 0.1s linear; /* Faster transition */
+            border-radius: 0; /* Blocky links */
+            border: 2px solid #000000;
+            margin: 0 5px;
+            background-color: #8B8B8B; /* Button color */
+            box-shadow: 2px 2px 0px #404040;
+        }
+        nav ul li a:hover {
+            background-color: #B0B0B0; /* Lighter on hover */
+            box-shadow: 1px 1px 0px #202020;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin-top: 15px;
+        }
+        .skill-tag {
+            background-color: #3A66A8; /* Blue block color */
+            color: #FFFFFF;
+            padding: 8px 15px;
+            border-radius: 0; /* Blocky tags */
+            font-size: 0.9em;
+            box-shadow: 2px 2px 0px #1A3355; /* Blocky shadow */
+            border: 2px solid #000000;
+        }
+
+        /* Download Button Styling */
+        .download-button {
+            display: block;
+            width: fit-content;
+            margin: 20px auto 0 auto; /* Center the button and add top margin */
+            padding: 10px 20px;
+            background-color: #1A7A28; /* Minecraft green */
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border: 4px solid #000000;
+            border-radius: 0;
+            box-shadow: 4px 4px 0px #0F4A18; /* Darker green shadow */
+            font-family: 'Press Start 2P', cursive, Arial, sans-serif;
+            font-size: 0.9em;
+            transition: background-color 0.1s linear, box-shadow 0.1s linear;
+        }
+
+        .download-button:hover {
+            background-color: #28B038; /* Lighter green on hover */
+            box-shadow: 2px 2px 0px #0A280F;
+        }
+
+        /* Responsive navigation for small screens */
+        @media screen and (max-width: 600px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav ul li {
+                width: 100%;
+                margin-bottom: 5px; /* Add space between stacked buttons */
+            }
+            nav ul li a {
+                text-align: center;
+                padding: 8px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#">หน้าแรก</a></li>
+            <li><a href="#ประวัติส่วนตัว">เกี่ยวกับฉัน</a></li>
+            <li><a href="#ข้อมูลติดต่อ">ติดต่อ</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>นายพิชญะ ภูปุย</h1>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/Kim_Jong-un_and_Vladimir_Putin_%282023-09-13%29_12_%28cropped%29.jpg" alt="รูปโปรไฟล์ของคุณ" class="profile-pic">
+
+        <div class="section">
+            <h2 id="ประวัติส่วนตัว">ประวัติส่วนตัว</h2>
+            <p>สวัสดีครับ/ค่ะ! ฉันชื่อ <strong>นายพิชญะ ภูปุย</strong> ปัจจุบันเป็นนักศึกษาที่ มหาวิทยาลัยกาฬสินธุ์ ฉันมีความสนใจใน คอมพิวเตอร์, เกม, และ ฟังเพลง.</p>
+            <p>ฉันมีความมุ่งมั่นที่จะ ทำงานหาเงินเก็บเยอะๆ และชอบที่จะเรียนรู้สิ่งใหม่ๆ ตลอดเวลา</p>
+        </div>
+
+        <!-- Personal Habits Section -->
+        <div class="section">
+            <h2 id="นิสัยส่วนตัว">นิสัยส่วนตัว</h2>
+            <p>เป็นคนสบายๆ ชอบเรียนรู้สิ่งใหม่ๆ มีความกระตือรือร้นในการทำงาน ชอบช่วยเหลือผู้อื่น เเละชอบฟังเพลงเเล้วกับเพื่อนเเอบมีนิสัยขี้เกี้ยจ</p>
+        </div>
+
+        <!-- Education Section -->
+        <div class="section">
+            <h2 id="การศึกษา">การศึกษา</h2>
+            <ul>
+                <li><strong>ปริญญาตรีวิทยาการคอมพิวเตอร์</strong>, มหาวิทยาลัยกาฬสินธุ์, พ.ศ. 2566 (เกียรตินิยมอันดับ 2)</li>
+                <li><strong>ประกาศนียบัตรวิชาชีพสาขาเทคโนโลยีสารสนเทศ</strong>, วิทยาลัยเทคนิคกาฬสินธุ์, พ.ศ. 2563 (โครงการอาชีวะพันธุ์ใหม่)</li>
+            </ul>
+        </div>
+
+        <!-- Skills Section -->
+        <div class="section">
+            <h2 id="ทักษะ">ทักษะ</h2>
+            <div class="skills-grid">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Data Analysis</span>
+                <span class="skill-tag">Web Development (HTML, CSS)</span>
+                <span class="skill-tag">Machine Learning Basics</span>
+                <span class="skill-tag">Problem Solving</span>
+                <span class="skill-tag">Teamwork</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 id="ข้อมูลติดต่อ">ข้อมูลติดต่อ</h3>
+            <p><strong>อีเมล:</strong> <a href="mailto:691540006003-7@ksu.ac.th">691540006003-7@ksu.ac.th</a></p>
+            <p><strong>LinkedIn:</strong> <a href="#">linkedin.com/in/yourprofile</a></p>
+            <p><strong>GitHub:</strong> <a href="#">github.com/yourusername</a></p>
+            <p><strong>โทรศัพท์:</strong> 0621239164</p>
+            <a href="#" class="download-button">ดาวน์โหลดเรซูเม่</a>
+        </div>
+
+    </div>
+</body>
+</html>
+"""
+
+HTML(html_code)
